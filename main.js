@@ -1,4 +1,5 @@
 var canvas = document.getElementById('game');
+var scoreText = document.getElementById("score");
 var context = canvas.getContext('2d');
 
 var grid = 16;
@@ -31,7 +32,8 @@ function getRandomInt(min, max) {
 // игровой цикл
 function loop() {
   requestAnimationFrame(loop);
-  // замедление игрового цикла до 15 кадров в секунду вместо 60 (60/15 = 4)
+  scoreText.textContent = "Очки: " + (snake.cells.length-4);
+  
   if (++count < 10) {
     return;
   }
